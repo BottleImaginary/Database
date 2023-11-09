@@ -3,6 +3,8 @@ import sqlite3
 # Membuat koneksi ke database
 conn = sqlite3.connect('bottle.db')
 
+cursor = conn.cursor()
+
 
 class bottle:
     def __init__(self):
@@ -10,7 +12,7 @@ class bottle:
         self.cursor = self.conn.cursor()
 
     def create_tables(self):
-        with open('database.sql') as sqlfile:
+        with open('bottle_imaginary.sql') as sqlfile:
             sqlscript = sqlfile.read()
         self.cursor.executescript(sqlscript)
         self.conn.commit()
@@ -25,18 +27,9 @@ class bottle:
             print("Error", str(f))
             return False
 
-   # def user_list(request):
-       # posts =
+data = cursor.fetchall()
+for row in data:
+    print(row)
 
-# Membuat kursor
-# cursor = conn.cursor()
-
-# Menjalankan pernyataan SQL mentah
-# cursor.execute("SELECT * FROM user")
-
-# Mengambil hasil
-# results = cursor.fetchall()
-
-
-# Menutup koneksi
+conn.commit()
 conn.close()
