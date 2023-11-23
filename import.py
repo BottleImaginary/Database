@@ -1,14 +1,14 @@
 import sqlite3
 
 # Membuat koneksi ke database
-conn = sqlite3.connect('bottle.db')
+conn = sqlite3.connect('bottle_imaginary.db')
 
 cursor = conn.cursor()
 
 
 class bottle:
     def __init__(self):
-        self.conn = sqlite3.connect("bottle.db")
+        self.conn = sqlite3.connect("bottle_imaginary.db")
         self.cursor = self.conn.cursor()
 
     def create_tables(self):
